@@ -1,7 +1,7 @@
 import express from 'express';
-import bodyParser from 'body-parser';
 import cors from 'cors';
-
+import cookieParser from 'cookie-parser';
+const app = express();
 ////used for middlewares and the configuration files of the app
 app.use(cors({
     origin: process.env.CORS_ORIGIN,// allow to server to accept request from different origin
@@ -29,6 +29,10 @@ app.use(express.static('public'));
 app.use(cookieParser());
 
 
-const app = express();
+import userRouter from "./routes/user.routes.js";
+
+app.use("/api/v1/users",userRouter);
+//route is declared as middleware because the route file and the app file are different.
+//so u have to import and configure it differently.
 
 export default app;

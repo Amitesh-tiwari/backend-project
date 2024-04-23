@@ -2,13 +2,13 @@ import { request } from "express";
 
 //promise method
 const asyncHandler = (requestHandler) => {
-    (req,res,next) => {
+    return (req,res,next) => {
         return Promise.resolve(requestHandler(req,res,next))
         .catch((err) = next(err));
     }
 }
 
-export default asyncHandler;
+
 
 //now try catch method
 
@@ -31,3 +31,6 @@ export default asyncHandler;
 //     }
 
 // }
+
+
+export default asyncHandler;
