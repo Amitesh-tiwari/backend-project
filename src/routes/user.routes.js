@@ -24,8 +24,10 @@ router.route("/register").post((req, res,next) => {
 //route is set as register and the method is post
 
 router.route("/login").post((req, res,next) => {
-    loginUser(req, res,next);
+    loginUser;
 });
+
+
 
 
 //secured Routes
