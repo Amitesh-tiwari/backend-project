@@ -55,6 +55,7 @@ const registerUser = asyncHandler(async (req, res) => {
     if(req.files && Array.isArray(req.files.coverImage) && req.files.coverImage.length > 0){
         coverImageLocalPath = req.files.coverImage[0].path;
     }
+    console.log(avatarLocalPath);
 
     if(!avatarLocalPath){
         throw new ApiErros(400, "Avatar is required");
@@ -170,8 +171,8 @@ const logoutUser = asyncHandler(async (req, res) => {
 
 });
 
-export default {
-registerUser,
+export default 
+registerUser
 loginUser,
 logoutUser
-};
+;

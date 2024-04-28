@@ -8,7 +8,7 @@ import logoutUser from "../controllers/user.controller.js";
 
 const router = Router()
 
-router.route("/register").post(
+router.route("/register").post((req, res,next) => {
     upload.fields([
         {
             "name": "avatar",
@@ -17,21 +17,21 @@ router.route("/register").post(
         {
             "name": "coverImage",
             "maxCount": 1
-
         }
-    ]),
-    registerUser,
-    (req, res) => {
-        // Handle the request here
-        res.send('File uploaded successfully');
-    }
-);
+    ]);
+    registerUser(req, res,next);
+});
 //route is set as register and the method is post
 
-router.route("/login").post(loginUser);
+router.route("/login").post((req, res,next) => {
+    loginUser(req, res,next);
+});
 
 
 //secured Routes
-router.route("logout").post(verifyJWT , logoutUser);
+router.route("logout").post((req1,res,next) => {
+    verifyJWT;
+    logoutUser;
+});
 
 export default router; 
