@@ -13,16 +13,4 @@ const upload = multer({
     storage,
 })
 
-const uploadAvatar = upload.single('avatar');
-
-export default {
-    uploadAvatar,
-    upload
-}
-
-
-
-
-
-
-
+export default upload;
